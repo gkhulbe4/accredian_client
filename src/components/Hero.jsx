@@ -15,7 +15,11 @@ function Hero() {
           <ReferModal />
         </div>
         <div className="w-[50%] object-cover rounded-md">
-          <img className="h-full w-full" src="src/assets/refer.png" alt="" />
+          <img
+            className="h-full w-full"
+            src="https://png.pngtree.com/png-vector/20200103/ourmid/pngtree-person-holding-megaphone-shout-for-referral-marketing-cooperation-and-handshake-flat-png-image_2108393.jpg"
+            alt="REFER IMAGE"
+          />
         </div>
       </div>
     </div>
