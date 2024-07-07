@@ -111,7 +111,7 @@ function SigninForm() {
 
             <Button
               disabled={isLogin}
-              className="bg-black text-white px-4 py-2 rounded-xl hover:bg-gray-800 "
+              className="bg-[#1c6fe1] font-light text-white px-4 py-2 rounded-lg hover:bg-blue-500 "
               type="submit"
             >
               {isLogin ? "Signing in" : "Signin"}

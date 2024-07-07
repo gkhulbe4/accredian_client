@@ -16,8 +16,8 @@ function ReferModal() {
         </DialogTrigger>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>
-              Enter the email address of the user you want to refer
+            <DialogTitle className="text-lg font-semibold px-3">
+              Please enter the referee email
             </DialogTitle>
           </DialogHeader>
           <ReferForm />
