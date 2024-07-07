@@ -20,6 +20,7 @@ import BASE_URL from "@/lib/globalConstant";
 function SignupForm() {
   const [checkbox, setCheckbox] = useState(false);
   const [view, setView] = useState(false);
+  const [isRegistering, setIsRegistering] = useState(false);
   const { setUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -40,6 +41,7 @@ function SignupForm() {
       toast.info("Please accept the terms and conditions");
       return;
     }
+    setIsRegistering(true);
     try {
       const res = await axios.post(
         `${BASE_URL}/user/signup`,
@@ -64,6 +66,8 @@ function SignupForm() {
       } else {
         toast.error(error);
       }
+    } finally {
+      setIsRegistering(true);
     }
   }
 
@@ -138,10 +142,11 @@ function SignupForm() {
               </label>
             </div>
             <Button
+              disabled={isRegistering}
               className="bg-black text-white px-4 py-2 rounded-xl hover:bg-gray-800 "
               type="submit"
             >
-              Register
+              {isRegistering ? "Registering" : "Register"}
             </Button>
           </form>
         </Form>

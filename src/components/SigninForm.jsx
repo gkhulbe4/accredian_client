@@ -19,6 +19,7 @@ import BASE_URL from "@/lib/globalConstant";
 
 function SigninForm() {
   const [view, setView] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
   const { setUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -34,7 +35,7 @@ function SigninForm() {
   async function onSubmit(data) {
     const email = data.email;
     const password = data.password;
-
+    setIsLogin(true);
     try {
       const res = await axios.post(
         `${BASE_URL}/user/signin`,
@@ -58,6 +59,8 @@ function SigninForm() {
       } else {
         toast.error(error);
       }
+    } finally {
+      setIsLogin(false);
     }
   }
 
@@ -107,10 +110,11 @@ function SigninForm() {
             </div>
 
             <Button
+              disabled={isLogin}
               className="bg-black text-white px-4 py-2 rounded-xl hover:bg-gray-800 "
               type="submit"
             >
-              Signin
+              {isLogin ? "Signing in" : "Signin"}
             </Button>
             <p className="text-sm">
               Dont have an account?{" "}
